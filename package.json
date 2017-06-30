@@ -1,0 +1,21 @@
+{
+  "name": "optim",
+  "version": "1.0.0",
+  "description": "webpageoptim",
+  "main": "index.js",
+  "scripts": {
+    "test": "web"
+  },
+  "repository": {
+    "type": "git",
+    "url": "webpage-optimization"
+  },
+  "keywords": [
+    "web"
+  ],
+  "author": "Nikoloz Mchedlishvili",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}
