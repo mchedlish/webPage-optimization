@@ -19,10 +19,6 @@
     "gulp": "^3.9.1"
   },
   "dependencies": {
-    "gulp": "^3.9.1",
-    "gulp-imagemin": "^3.3.0",
-    "gulp-uglify": "^3.0.0",
-    "pump": "^1.0.2",
-    "uglify": "^0.1.5"
+    "gulp-imagemin": "^3.3.0"
   }
 }

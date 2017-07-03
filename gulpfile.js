@@ -1,13 +1,8 @@
-var gulp = require('gulp');
-var uglify = require('gulp-uglify');
-var pump = require('pump');
+const gulp = require('gulp');
+const imagemin = require('gulp-imagemin');
 
-gulp.task('compress', function (cb) {
-    pump([
-        gulp.src('views/js/main.js'),
-        uglify(),
-        gulp.dest('minjs')
-    ],
-        cb
-    );
-});
+gulp.task('default', () =>
+    gulp.src('img/*')
+    .pipe(imagemin())
+    .pipe(gulp.dest('dist/images'))
+);
