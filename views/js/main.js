@@ -71,41 +71,41 @@ function updatePositions() {
         var n = Math.sin(e + r % 5);
         a[r].style.left = a[r].basicLeft + 100 * n + "px";
     }
-    window.performance.mark("mark_end_frame"), window.performance.measure("measure_frame_duration", "mark_start_frame", "mark_end_frame"), frame % 10 == 0 && logAverageFrame(window.performance.getEntriesByName("measure_frame_duration"))
+    window.performance.mark("mark_end_frame"), window.performance.measure("measure_frame_duration", "mark_start_frame", "mark_end_frame"), frame % 10 === 0 && logAverageFrame(window.performance.getEntriesByName("measure_frame_duration"));
 }
 var pizzaIngredients = {};
 pizzaIngredients.meats = ["Pepperoni", "Sausage", "Fennel Sausage", "Spicy Sausage", "Chicken", "BBQ Chicken", "Chorizo", "Chicken Andouille", "Salami", "Tofu", "Bacon", "Canadian Bacon", "Proscuitto", "Italian Sausage", "Ground Beef", "Anchovies", "Turkey", "Ham", "Venison", "Lamb", "Duck", "Soylent Green", "Carne Asada", "Soppressata Picante", "Coppa", "Pancetta", "Bresola", "Lox", "Guanciale", "Chili", "Beef Jerky", "Pastrami", "Kielbasa", "Scallops", "Filet Mignon"], pizzaIngredients.nonMeats = ["White Onions", "Red Onions", "Sauteed Onions", "Green Peppers", "Red Peppers", "Banana Peppers", "Ghost Peppers", "Habanero Peppers", "Jalapeno Peppers", "Stuffed Peppers", "Spinach", "Tomatoes", "Pineapple", "Pear Slices", "Apple Slices", "Mushrooms", "Arugula", "Basil", "Fennel", "Rosemary", "Cilantro", "Avocado", "Guacamole", "Salsa", "Swiss Chard", "Kale", "Sun Dried Tomatoes", "Walnuts", "Artichoke", "Asparagus", "Caramelized Onions", "Mango", "Garlic", "Olives", "Cauliflower", "Polenta", "Fried Egg", "Zucchini", "Hummus"], pizzaIngredients.cheeses = ["American Cheese", "Swiss Cheese", "Goat Cheese", "Mozzarella Cheese", "Parmesean Cheese", "Velveeta Cheese", "Gouda Cheese", "Muenster Cheese", "Applewood Cheese", "Asiago Cheese", "Bleu Cheese", "Boursin Cheese", "Brie Cheese", "Cheddar Cheese", "Chevre Cheese", "Havarti Cheese", "Jack Cheese", "Pepper Jack Cheese", "Gruyere Cheese", "Limberger Cheese", "Manchego Cheese", "Marscapone Cheese", "Pecorino Cheese", "Provolone Cheese", "Queso Cheese", "Roquefort Cheese", "Romano Cheese", "Ricotta Cheese", "Smoked Gouda"], pizzaIngredients.sauces = ["Red Sauce", "Marinara", "BBQ Sauce", "No Sauce", "Hot Sauce"], pizzaIngredients.crusts = ["White Crust", "Whole Wheat Crust", "Flatbread Crust", "Stuffed Crust"], String.prototype.capitalize = function () {
-    return this.charAt(0).toUpperCase() + this.slice(1)
+    return this.charAt(0).toUpperCase() + this.slice(1);
 };
 var adjectives = ["dark", "color", "whimsical", "shiny", "noisy", "apocalyptic", "insulting", "praise", "scientific"],
     nouns = ["animals", "everyday", "fantasy", "gross", "horror", "jewelry", "places", "scifi"],
     selectRandomMeat = function () {
-        return pizzaIngredients.meats[Math.floor(Math.random() * pizzaIngredients.meats.length)]
+        return pizzaIngredients.meats[Math.floor(Math.random() * pizzaIngredients.meats.length)];
     },
     selectRandomNonMeat = function () {
-        return pizzaIngredients.nonMeats[Math.floor(Math.random() * pizzaIngredients.nonMeats.length)]
+        return pizzaIngredients.nonMeats[Math.floor(Math.random() * pizzaIngredients.nonMeats.length)];
     },
     selectRandomCheese = function () {
-        return pizzaIngredients.cheeses[Math.floor(Math.random() * pizzaIngredients.cheeses.length)]
+        return pizzaIngredients.cheeses[Math.floor(Math.random() * pizzaIngredients.cheeses.length)];
     },
     selectRandomSauce = function () {
-        return pizzaIngredients.sauces[Math.floor(Math.random() * pizzaIngredients.sauces.length)]
+        return pizzaIngredients.sauces[Math.floor(Math.random() * pizzaIngredients.sauces.length)];
     },
     selectRandomCrust = function () {
         return pizzaIngredients.crusts[Math.floor(Math.random() * pizzaIngredients.crusts.length)];
     },
     ingredientItemizer = function (e) {
-        return "<li>" + e + "</li>"
+        return "<li>" + e + "</li>";
     },
     makeRandomPizza = function () {
         for (var e = "", a = Math.floor(4 * Math.random()), r = Math.floor(3 * Math.random()), n = Math.floor(2 * Math.random()), i = 0; i < a; i++) e += ingredientItemizer(selectRandomMeat());
         for (var t = 0; t < r; t++) e += ingredientItemizer(selectRandomNonMeat());
         for (var o = 0; o < n; o++) e += ingredientItemizer(selectRandomCheese());
-        return e += ingredientItemizer(selectRandomSauce()), e += ingredientItemizer(selectRandomCrust())
+        return e += ingredientItemizer(selectRandomSauce()), e += ingredientItemizer(selectRandomCrust());
     },
     pizzaElementGenerator = function (e) {
         var a, r, n, i, t, o;
-        return a = document.createElement("div"), r = document.createElement("div"), n = document.createElement("img"), i = document.createElement("div"), a.classList.add("randomPizzaContainer"), a.style.width = "33.33%", a.style.height = "325px", a.id = "pizza" + e, r.style.width = "35%", n.src = "images/pizza.png", n.classList.add("img-responsive"), r.appendChild(n), a.appendChild(r), i.style.width = "65%", t = document.createElement("h4"), t.innerHTML = randomName(), i.appendChild(t), o = document.createElement("ul"), o.innerHTML = makeRandomPizza(), i.appendChild(o), a.appendChild(i), a
+        return a = document.createElement("div"), r = document.createElement("div"), n = document.createElement("img"), i = document.createElement("div"), a.classList.add("randomPizzaContainer"), a.style.width = "33.33%", a.style.height = "325px", a.id = "pizza" + e, r.style.width = "35%", n.src = "images/pizza.png", n.classList.add("img-responsive"), r.appendChild(n), a.appendChild(r), i.style.width = "65%", t = document.createElement("h4"), t.innerHTML = randomName(), i.appendChild(t), o = document.createElement("ul"), o.innerHTML = makeRandomPizza(), i.appendChild(o), a.appendChild(i), a;
     },
     resizePizzas = function (e) {
         window.performance.mark("mark_start_resize"),
@@ -118,7 +118,7 @@ var adjectives = ["dark", "color", "whimsical", "shiny", "noisy", "apocalyptic",
                     case "3":
                         return void(document.getElementById("pizzaSize").innerHTML = "Large");
                     default:
-                        console.log("bug in changeSliderLabel")
+                        console.log("bug in changeSliderLabel");
                 }
             }(e),
             function (e) {
@@ -133,17 +133,17 @@ var adjectives = ["dark", "color", "whimsical", "shiny", "noisy", "apocalyptic",
                         newWidth = 50;
                         break;
                     default:
-                        console.log("bug in sizeSwitcher")
+                        console.log("bug in sizeSwitcher");
                 }
                 for (var a = document.getElementsByClassName("randomPizzaContainer"), r = 0; r < a.length; r++) a[r].style.width = newWidth + "%"
             }(e), window.performance.mark("mark_end_resize"), window.performance.measure("measure_pizza_resize", "mark_start_resize", "mark_end_resize");
         var a = window.performance.getEntriesByName("measure_pizza_resize");
-        console.log("Time to resize pizzas: " + a[a.length - 1].duration + "ms")
+        console.log("Time to resize pizzas: " + a[a.length - 1].duration + "ms");
     };
 window.performance.mark("mark_start_generating");
 for (var i = 2; i < 100; i++) {
     var pizzasDiv = document.getElementById("randomPizzas");
-    pizzasDiv.appendChild(pizzaElementGenerator(i))
+    pizzasDiv.appendChild(pizzaElementGenerator(i));
 }
 window.performance.mark("mark_end_generating"), window.performance.measure("measure_pizza_generation", "mark_start_generating", "mark_end_generating");
 var timeToGenerate = window.performance.getEntriesByName("measure_pizza_generation");
@@ -152,8 +152,8 @@ var frame = 0;
 window.addEventListener("scroll", updatePositions), document.addEventListener("DOMContentLoaded", function () {
     for (var e = 0; e < 200; e++) {
         var a = document.createElement("img");
-        a.className = "mover", a.src = "images/pizza.png", a.style.height = "100px", a.style.width = "73.333px", a.basicLeft = e % 8 * 256, a.style.top = 256 * Math.floor(e / 8) + "px", document.querySelector("#movingPizzas1").appendChild(a)
+        a.className = "mover", a.src = "images/pizza.png", a.style.height = "100px", a.style.width = "73.333px", a.basicLeft = e % 8 * 256, a.style.top = 256 * Math.floor(e / 8) + "px", document.querySelector("#movingPizzas1").appendChild(a);
     }
-    updatePositions()
+    updatePositions();
 });
 
