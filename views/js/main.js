@@ -135,7 +135,7 @@ var adjectives = ["dark", "color", "whimsical", "shiny", "noisy", "apocalyptic",
                     default:
                         console.log("bug in sizeSwitcher");
                 }
-                for (var a = document.getElementsByClassName("randomPizzaContainer"), r = 0; r < a.length; r++) a[r].style.width = newWidth + "%"
+                for (var a = document.getElementsByClassName("randomPizzaContainer"), r = 0; r < a.length; r++) a[r].style.width = newWidth + "%";
             }(e), window.performance.mark("mark_end_resize"), window.performance.measure("measure_pizza_resize", "mark_start_resize", "mark_end_resize");
         var a = window.performance.getEntriesByName("measure_pizza_resize");
         console.log("Time to resize pizzas: " + a[a.length - 1].duration + "ms");
