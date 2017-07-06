@@ -9,6 +9,11 @@
 - minified HTML and JS files.
 - compressed two pictures in "img" file in "views" folder.
 - included two screenshot picture which show final score of 91 for page Speed Insights measure in internet exloprer which doesn't have any plug-ins.
+- In index.html missing "async" added.
+- JavaScript font-loader added.
+- Inlined style.css to index.html.
+- media "print" added.
+- HTML minified of index.html.
 
 ### How to check speed score
 - Use ngrok to check page speed score on Page Speed Insights.
