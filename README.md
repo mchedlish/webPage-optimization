@@ -14,6 +14,8 @@
 - Inlined style.css to index.html.
 - media "print" added.
 - HTML minified of index.html.
+- transform: translateZ(0) added to "mover class.
+- number of pizzas depand on viewport size.
 
 ### How to check speed score
 - Use ngrok to check page speed score on Page Speed Insights.

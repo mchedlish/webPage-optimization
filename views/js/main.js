@@ -149,11 +149,25 @@ window.performance.mark("mark_end_generating"), window.performance.measure("meas
 var timeToGenerate = window.performance.getEntriesByName("measure_pizza_generation");
 console.log("Time to generate pizzas on load: " + timeToGenerate[0].duration + "ms");
 var frame = 0;
-window.addEventListener("scroll", updatePositions), document.addEventListener("DOMContentLoaded", function () {
-    for (var e = 0; e < 200; e++) {
-        var a = document.createElement("img");
-        a.className = "mover", a.src = "images/pizza.png", a.style.height = "100px", a.style.width = "73.333px", a.basicLeft = e % 8 * 256, a.style.top = 256 * Math.floor(e / 8) + "px", document.querySelector("#movingPizzas1").appendChild(a);
-    }
-    updatePositions();
+window.addEventListener('scroll', updatePositions);
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  var cols = 8;
+  var s = 256;
+  var rows = Math.round(window.screen.height / s);
+  var pizzaCount = rows * cols;
+  var movingPizzas = document.getElementById("movingPizzas1");
+  for (var i = 0; i < pizzaCount; i++) {
+    var elem = document.createElement('img');
+    elem.className = 'mover';
+    elem.src = "images/pizza.png";
+    elem.style.height = "100px";
+    elem.style.width = "73.333px";
+    elem.basicLeft = (i % cols) * s;
+    elem.style.top = (Math.floor(i / cols) * s) + 'px';
+    movingPizzas.appendChild(elem);
+  }
+  updatePositions();
 });
 
